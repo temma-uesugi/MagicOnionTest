@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <RootNamespace>App.Shared</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MagicOnion" Version="4.2.0" />
+      <PackageReference Include="MessagePack.UnityShims" Version="2.2.85" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Include="..\MagicOnionTestUnity\Assets\App\Scripts\Shared\**\*.cs" />
+    </ItemGroup>
+
+</Project>
