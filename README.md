@@ -6,11 +6,15 @@ MagicOniont + Unity でサーバを介してのマルチプレイと、サーバ
 #### サーバを介したマルチプレイの場合
 ローカルでサーバを立ち上げ、複数のクライアントアプリで実行をした場合は、↓のようになります
 
+<img src="https://github.com/temma-uesugi/MagicOnionTest/blob/image/MalutiPlay.gif?raw=true" height="600">
+
 当然、(ローカル)サーバが動いていないと、クライアントアプリも反応しません。
 
 
 #### サーバを介さないシングルプレイの場合
 「一人部屋」にチェックして入室した際は、↓のような感じになります。
+
+<img src="https://github.com/temma-uesugi/MagicOnionTest/blob/image/singlePlayer.gif?raw=true" height="600">
 
 この場合は、(ローカル)サーバが動いていなくても、大丈夫です。繋ぎに行っていないので。
 
