@@ -49,3 +49,5 @@ ProjectSettings/AndroidResolverDependencies.xml
 **/bin/
 **/obj/
 **/.idea/
+.config/
+**/.vs/
