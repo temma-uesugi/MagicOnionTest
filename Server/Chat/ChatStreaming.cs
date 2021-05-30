@@ -1,3 +1,4 @@
+using System;
 using App.Shared;
 using MagicOnion.Server.Hubs;
 using System.Threading.Tasks;
@@ -21,6 +22,7 @@ namespace App.Server.Chat
         /// </summary>
         protected override ValueTask OnConnecting()
         {
+            Console.WriteLine("OnConnecting");
             return CompletedTask;
         }
 
@@ -30,6 +32,7 @@ namespace App.Server.Chat
         protected override ValueTask OnDisconnected()
         {
             
+            Console.WriteLine("OnDisconnected");
             //MagicOnion.Server.HubsのGroupからぬける
             _group.RemoveAsync(Context);
             
@@ -43,6 +46,7 @@ namespace App.Server.Chat
         /// </summary>
         public async Task JoinRoomAsync(string roomId, string name)
         {
+            Console.WriteLine($"JoinRoomAsync {name}");
             //MagicOnion.Server.HubsのGroupにRoomIdを指定して入室する
             _group = await Group.AddAsync(roomId);
             
@@ -59,6 +63,7 @@ namespace App.Server.Chat
         /// </summary>
         public async Task SendMessageAsync(string message)
         {
+            Console.WriteLine($"SendMessageAsync {message}");
             //Room内で処理する
             await _room.ReceiveUserMessageAsync(_roomUserId, message);
         }

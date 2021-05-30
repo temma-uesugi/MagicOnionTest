@@ -7,6 +7,8 @@ MagicOnionTestUnity/Library/
 MagicOnionTestUnity/Logs/
 MagicOnionTestUnity/.vs/*
 MagicOnionTestUnity/Build/
+MagicOnionTestUnity/*.csproj
+MagicOnionTestUnity/*.sln
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #

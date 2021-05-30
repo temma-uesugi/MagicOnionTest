@@ -62,11 +62,11 @@
      <Compile Include="Assets\Plugins\MagicOnion\MagicOnion.Unity\Editor\GrpcChannelProviderMonitor.cs" />
      <Compile Include="Assets\Plugins\MagicOnion\MagicOnion.Unity\Editor\GrpcChannelProviderWindow.cs" />
      <None Include="Assets\Plugins\MagicOnion\MagicOnion.Unity\Editor\MagicOnion.Unity.Editor.asmdef" />
- <Reference Include="UnityEditor.UI">
- <HintPath>/Users/temmauesugi/MagicOnionTest/MagicOnionTestUnity/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Users/temmauesugi/MagicOnionTest/MagicOnionTestUnity/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.UI">
+ <HintPath>/Users/temmauesugi/MagicOnionTest/MagicOnionTestUnity/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.TestRunner">
  <HintPath>/Users/temmauesugi/MagicOnionTest/MagicOnionTestUnity/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
