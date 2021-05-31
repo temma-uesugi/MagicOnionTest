@@ -75,8 +75,12 @@ MagicOniont + Unity でサーバを介してのマルチプレイと、サーバ
 ```
 
 サーバ側からみたプロジェクト構成は下記のようになってます
+<img src="https://github.com/temma-uesugi/MagicOnionTest/blob/image/project.jpg?raw=true" height="400">  
 
+Sharedプロジェクトは、Unity側と共通で使うもので、通信定義や共通の定数や関数なんかを置くイメージです。
+ServerOnClientプロジェクトには、通信を受けてのサーバ側の処理を置いておくイメージです。  
 
+サーバに繋ぎに行くのか、Unity内部で処理するのかは切り替えは、下記のようにやっています。
 リアルタイム通信のコネクションを管理している、App/Scripts/Chat/ChatStreaming.cs の中で
 
 ```
