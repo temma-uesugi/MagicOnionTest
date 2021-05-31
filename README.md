@@ -75,6 +75,7 @@ MagicOniont + Unity でサーバを介してのマルチプレイと、サーバ
 ```
 
 サーバ側からみたプロジェクト構成は下記のようになってます
+
 <img src="https://github.com/temma-uesugi/MagicOnionTest/blob/image/project.jpg?raw=true" height="400">  
 
 Sharedプロジェクトは、Unity側と共通で使うもので、通信定義や共通の定数や関数なんかを置くイメージです。
