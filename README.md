@@ -16,10 +16,67 @@ MagicOniont + Unity でサーバを介してのマルチプレイと、サーバ
 
 <img src="https://github.com/temma-uesugi/MagicOnionTest/blob/image/singlePlayer.gif?raw=true" height="600">
 
-この場合は、(ローカル)サーバが動いていなくても、大丈夫です。繋ぎに行っていないので。
+この場合は、(ローカル)サーバが動いていなくても、大丈夫です。繋ぎに行っていないので。  
+
+どちらもRoomから退出する部分は実装していないので、退出したい場合はアプリを落とします。  
 
 #### 実装としては
 リアルタイム通信を受けてのサーバ側の処理を、Unityプロジェクト内に置いて、サーバ側はそれを参照するという感じでやってます。
+こうすることで、サーバで動かす際も、Unity内で動かす際も、同じコードを使うことができます。
+プロジェクト全体の、ざっくりとしたディレクトリ・ファイル構造は下記です  
+
+```
+│   //↓ サーバのSolutionファイル
+├── MagicOnionTest.sln
+│
+│   //↓ Unityのプロジェクトディレクトリ
+├── MagicOnionTesttUnityA
+│   │   
+│   │   //↓ UnityのSolutionファイル
+│   ├── MagicOnionTestUnity.sln
+│   ├── Assets
+│   │   ├── App
+│   │   │   └── Scripts
+│   │   │       ├── Chat
+│   │   │       │   ├── ChatClient.cs
+│   │   │       │   ├── ChatStreaming.cs
+│   │   │       │   └── ChatStreamingReceiver.cs
+│   │   │       │
+│   │   │       │   //↓ Unityと共有するサーバ側の処理
+│   │   │       ├── ServerOnClient
+│   │   │       │   └── Room.cs
+│   │   │       │
+│   │   │       │   //↓ サーバ側と共有するコード
+│   │   │       └── Shared
+│   │   │           ├── IChatStreaming.cs
+│   │   │           └── IChatStreamingReceiver.cs
+│   │   ├── MagicOnionGen
+│   │   │   ├── MagicOnionGen.cs
+│   │   │   └── MessagePackGen.cs
+│   │   └── Plugins
+│   └── Library
+├── Server
+│   │ 
+│   │   //↓ サーバのChatプロジェクト 今回のサーバのメイン部分
+│   └── Chat
+│       ├── Chat.csproj
+│       ├── ChatStreaming.cs
+│       ├── MagicOnionStartup.cs
+│       ├── Program.cs
+│       └── Startup.cs
+│ 
+│ 　//↓ Unity内のコードを参照するプロジェクト(サーバ側の処理)
+├── ServerOnClient
+│ 
+│ 　//↓ Unity内のコードを参照するプロジェクト
+└── Shared
+   ├── Shared.csproj
+   └── Program.cs
+```
+
+サーバ側からみたプロジェクト構成は下記のようになってます
+
+
 リアルタイム通信のコネクションを管理している、App/Scripts/Chat/ChatStreaming.cs の中で
 
 ```
@@ -89,7 +146,8 @@ ConnectInternal の方はUnity内の、
   - サーバを立ち上げる Server/Chatプロジェクトを起動
   - クライアントを起動
 - シングルプレイ
-  - クライアントを起動して、「一人部屋」にチェックして入室
+  - クライアントを起動して、「一人部屋」にチェックして入室  
+  
 
 ### 何の役に立つの？
 今回はチャットだったので有用性はないですが、オンライン対戦のゲームとかで、サーバに繋がなくても繋いでも同じ処理を使いまわせるのは、下記のような場合に役立つかな？と思っております。
@@ -98,4 +156,4 @@ ConnectInternal の方はUnity内の、
   - 一人で練習モード
 - マルチプレイにしたいが、サーバ費をかけられないので、一旦シングルプレイだけを実装
   - シングルプレイで手応えを掴んでから、サーバを建ててマルチプレイモードを実装したい
-  - (※Hole.ioというゲームはマルチプレイに見せかけて実はシングルプレイ)
+    - (※Hole.ioというゲームはマルチプレイに見せかけて実はシングルプレイ)
